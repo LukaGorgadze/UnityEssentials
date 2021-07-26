@@ -1,0 +1,16 @@
+ void DoubleClick()
+    {
+        if (Input.GetMouseButtonDown(0))
+            Counter++;
+        if (Time.time > Temptimer)
+        {
+            Counter = 0;
+            Temptimer = Time.time + 0.4f;
+        }
+
+        if (Counter >= 2)
+        {
+            Debug.Log("DoubleClick");
+            Counter = 0;
+        }
+    }

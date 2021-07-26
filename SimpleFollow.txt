@@ -1,0 +1,26 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Cam : MonoBehaviour
+{
+    public Transform Player;
+    public float Zoffset;
+    public float Yoffset;
+    public float minHeight;
+    Vector3 refSpeed;
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        Vector3 NewPos = Player.position + Player.forward * Zoffset;
+        NewPos.y = Mathf.Max(NewPos.y + Yoffset, minHeight);
+        transform.position = Vector3.SmoothDamp(transform.position, NewPos, ref refSpeed, 0.1f);
+        transform.LookAt(Player.position + Player.forward * 5);
+    }
+}

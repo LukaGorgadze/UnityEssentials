@@ -1,0 +1,4 @@
+Vector3 mousePosition = Input.mousePosition;
+MousePos = cam.ScreenToWorldPoint(new Vector3(mousePosition.x,mousePosition.y, cam.transform.position.y - transform.position.y));
+Vector3 LookDir = new Vector3(MousePos.x, transform.position.y, MousePos.z);
+transform.LookAt(LookDir);
